@@ -9,7 +9,7 @@
     "dev": "nodemon app.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "format": "prettier --write .",
+    "format": "prettier --write ."
   },
   "author": "nbaka",
   "dependencies": {
