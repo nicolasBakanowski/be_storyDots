@@ -1,5 +1,5 @@
-import { DataTypes } from 'sequelize'
-import sequelize from '../db.js'
+import { DataTypes } from 'sequelize';
+import sequelize from '../db.js';
 
 const Product = sequelize.define(
   'Product',
@@ -26,11 +26,21 @@ const Product = sequelize.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
+    id_brands: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'brands', 
+        key: 'id',      
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL',
+    },
   },
   {
     tableName: 'products',
     timestamps: true,
-  },
-)
+  }
+);
 
-export default Product
+export default Product;
