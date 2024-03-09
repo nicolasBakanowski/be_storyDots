@@ -8,6 +8,12 @@ export const getProductByIdRepository = async (productId) => {
   return Product.findByPk(productId)
 }
 
-export const updateProductRepository = async (product, newData) => {
-  return Product.update(newData)
-}
+export const updateProductRepository = async (productId, newData) => {
+  if (productId) {
+    return Product.update(newData, { where: { id: productId } });
+  } else {
+    throw new Error("Product not found");
+  }
+};
+
+

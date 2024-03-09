@@ -19,7 +19,7 @@ export const getProductByIdService = async (productId) => {
 export const editProductService = async (productId, newData) => {
   const product = await getProductByIdRepository(productId)
   if (!product) {
-    throw new Error('Producto no encontrado')
+    throw new Error('Product not found')
   }
   await updateProductRepository(product, newData)
 }

@@ -33,11 +33,7 @@ export const editProductController = async (req, res) => {
   try {
     const productId = req.params.id
 
-    await editProductService(productId, {
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price,
-    })
+    await editProductService(productId, req.body)
     res.status(200).json({ message: 'OK' })
   } catch (error) {
     console.error('Error in editProduct:', error)
