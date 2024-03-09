@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -26,13 +26,13 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal(
-          'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
+          'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
         ),
       },
-    });
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('brands');
+    await queryInterface.dropTable('brands')
   },
-};
+}
