@@ -1,11 +1,13 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import productRoute from './routes/productRoute.js'
+import cors from 'cors';
 
 const app = express()
 const port = process.env.PORT || 30000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
