@@ -1,4 +1,5 @@
 import {
+  editProductService,
   getAllProductsService,
   getProductByIdService,
 } from '../services/productService.js'
@@ -25,5 +26,25 @@ export const getProductByIdController = async (req, res) => {
       console.error('Error in getProductById:', error)
       return res.status(500).json({ error: 'Internal Server Error' })
     }
+  }
+}
+
+export const editProductController = async (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() })
+  }
+  try {
+    const productId = req.params.id
+
+    await editProductService(productId, {
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+    })
+    res.status(200).json({ message: 'OK' })
+  } catch (error) {
+    console.error('Error in editProduct:', error)
+    res.status(500).json({ error: 'Internal Server Error' })
   }
 }
