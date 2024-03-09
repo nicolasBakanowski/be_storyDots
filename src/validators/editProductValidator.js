@@ -1,5 +1,6 @@
-import { body } from 'express-validator'
-export const editProductValidationRules = [
+import { validationResult, body } from 'express-validator';
+
+export const editProductValidationMiddleware = [
   body('name').notEmpty().withMessage('El nombre no puede estar vacío'),
   body('description').optional(),
   body('price')
@@ -7,4 +8,14 @@ export const editProductValidationRules = [
     .withMessage('El precio no puede estar vacío')
     .isDecimal()
     .withMessage('El precio debe ser un número decimal'),
-]
+  
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    next();
+  }
+];

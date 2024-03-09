@@ -30,10 +30,6 @@ export const getProductByIdController = async (req, res) => {
 }
 
 export const editProductController = async (req, res) => {
-  const errors = validationResult(req)
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() })
-  }
   try {
     const productId = req.params.id
 
