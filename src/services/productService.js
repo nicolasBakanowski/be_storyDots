@@ -1,6 +1,7 @@
 import {
   getAllProductsRepository,
   getProductByIdRepository,
+  updateProductRepository
 } from '../repositories/productRepository.js'
 
 export const getAllProductsService = async () => {
@@ -20,5 +21,5 @@ export const editProductService = async (productId, newData) => {
   if (!product) {
     throw new Error('Producto no encontrado')
   }
-  await updateProduct(product, newData)
+  await updateProductRepository(product, newData)
 }

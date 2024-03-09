@@ -8,6 +8,6 @@ export const getProductByIdRepository = async (productId) => {
   return Product.findByPk(productId)
 }
 
-export const updateProduct = async (product, newData) => {
+export const updateProductRepository = async (product, newData) => {
   return Product.update(newData)
 }
