@@ -9,6 +9,6 @@ import { editProductValidationRules } from '../validators/editProductValidator.j
 const productRoute = express.Router()
 productRoute.get('/all', getAllProductsController)
 productRoute.get('/:id', getProductByIdController)
-productRoute.put('/:id/edit', editProductValidationRules, editProductController)
+productRoute.put('/edit/:id', editProductValidationRules, editProductController)
 
 export default productRoute
