@@ -14,3 +14,11 @@ export const getProductByIdService = async (productId) => {
   }
   return product
 }
+
+export const editProductService = async (productId, newData) => {
+  const product = await getProductByIdRepository(productId)
+  if (!product) {
+    throw new Error('Producto no encontrado')
+  }
+  await updateProduct(product, newData)
+}

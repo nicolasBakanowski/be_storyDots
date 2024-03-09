@@ -7,3 +7,7 @@ export const getAllProductsRepository = async () => {
 export const getProductByIdRepository = async (productId) => {
   return Product.findByPk(productId)
 }
+
+export const updateProduct = async (product, newData) => {
+  return Product.update(newData)
+}
