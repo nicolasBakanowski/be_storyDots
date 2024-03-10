@@ -21,5 +21,5 @@ export const editProductService = async (productId, newData) => {
   if (!product) {
     throw new Error('Product not found')
   }
-  await updateProductRepository(product, newData)
+  await updateProductRepository(productId, newData)
 }
