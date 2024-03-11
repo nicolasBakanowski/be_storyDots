@@ -17,7 +17,7 @@ app.use(
 )
 
 app.use('/product', productRoute)
-app.use('/user', productRoute)
+app.use('/user', userRoute)
 
 
 app.use((req, res, next) => {
