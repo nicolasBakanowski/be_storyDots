@@ -2,7 +2,7 @@ import {
   getAllProductsRepository,
   getProductByIdRepository,
   updateProductRepository,
-  deleteProductRepository
+  deleteProductRepository,
 } from '../repositories/productRepository.js'
 
 export const getAllProductsService = async () => {
@@ -12,7 +12,7 @@ export const getAllProductsService = async () => {
 export const getProductByIdService = async (productId) => {
   const product = await getProductByIdRepository(productId)
   if (!product) {
-    throw new Error('Product not found')
+    return false
   }
   return product
 }
@@ -20,19 +20,19 @@ export const getProductByIdService = async (productId) => {
 export const editProductService = async (productId, newData) => {
   const product = await getProductByIdRepository(productId)
   if (!product) {
-    throw new Error('Product not found')
+    return false
   }
   await updateProductRepository(productId, newData)
 }
 export const deleteProductService = async (productId) => {
-  const product = await getProductByIdRepository(productId);
+  const product = await getProductByIdRepository(productId)
   if (!product) {
-    throw new Error('Product not found');
+    return false
   }
   try {
-    await deleteProductRepository(productId);
-    return { success: true, message: 'Product deleted' };
+    await deleteProductRepository(productId)
+    return true
   } catch (error) {
-    throw new Error(`Error deleting product:`);
+    throw new Error(`Error deleting product:`)
   }
-};
+}

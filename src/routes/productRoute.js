@@ -10,6 +10,10 @@ import { editProductValidationMiddleware } from '../validators/editProductValida
 const productRoute = express.Router()
 productRoute.get('/all', getAllProductsController)
 productRoute.get('/:id', getProductByIdController)
-productRoute.put('/edit/:id', editProductValidationMiddleware, editProductController)
-productRoute.delete('/delete/:id',deleteProductController )
+productRoute.put(
+  '/edit/:id',
+  editProductValidationMiddleware,
+  editProductController,
+)
+productRoute.delete('/delete/:id', deleteProductController)
 export default productRoute

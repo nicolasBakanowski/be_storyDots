@@ -10,16 +10,16 @@ export const getProductByIdRepository = async (productId) => {
 
 export const updateProductRepository = async (productId, newData) => {
   if (productId) {
-    return Product.update(newData, { where: { id: productId } });
+    return Product.update(newData, { where: { id: productId } })
   } else {
-    throw new Error("Product not found");
+    throw new Error('Product not found')
   }
-};
+}
 
 export const deleteProductRepository = async (productId) => {
-  const deletedRowCount = await Product.destroy({ where: { id: productId } });
+  const deletedRowCount = await Product.destroy({ where: { id: productId } })
   if (deletedRowCount === 0) {
-    throw new Error("Product not found");
+    throw new Error('Product not found')
   }
-  return true;
-};
+  return true
+}

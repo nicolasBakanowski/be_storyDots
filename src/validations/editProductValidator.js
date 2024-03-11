@@ -6,7 +6,7 @@ export const editProductValidationMiddleware = [
   body('price')
     .notEmpty()
     .withMessage('El precio no puede estar vacío')
-    .isDecimal()
+    .isInt()
     .withMessage('El precio debe ser un número decimal'),
 
   (req, res, next) => {
