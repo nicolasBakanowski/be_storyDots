@@ -45,6 +45,6 @@ const Product = sequelize.define(
   },
 )
 
-Product.belongsTo(Brand, { foreignKey: 'id_brands', as: 'brand' });
+Product.belongsTo(Brand, { foreignKey: 'id_brand', as: 'brand' });
 
 export default Product
