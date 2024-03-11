@@ -1,8 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
 
 export const adminPermissionMiddleware = (req, res, next) => {
-  const isAdmin = req.user && req.user.isAdmin
-  if (isAdmin) {
+  if (req.user.user.isAdmin) {
     next()
   } else {
     return res
