@@ -10,7 +10,8 @@ export const getProductByIdRepository = async (productId) => {
 
 export const updateProductRepository = async (productId, newData) => {
   if (productId) {
-    return Product.update(newData, { where: { id: productId } })
+    Product.update(newData, { where: { id: productId } })
+    return true;
   } else {
     throw new Error('Product not found')
   }

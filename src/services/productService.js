@@ -22,7 +22,7 @@ export const editProductService = async (productId, newData) => {
   if (!product) {
     return false
   }
-  await updateProductRepository(productId, newData)
+  return await updateProductRepository(productId, newData)
 }
 export const deleteProductService = async (productId) => {
   const product = await getProductByIdRepository(productId)
