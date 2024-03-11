@@ -3,6 +3,7 @@ import {
   getProductByIdRepository,
   updateProductRepository,
   deleteProductRepository,
+  addProductRepository
 } from '../repositories/productRepository.js'
 
 export const getAllProductsService = async () => {
@@ -36,3 +37,11 @@ export const deleteProductService = async (productId) => {
     throw new Error(`Error deleting product:`)
   }
 }
+export const addProductService = async (productData) => {
+  try {
+    const newProduct = await addProductRepository(productData);
+    return newProduct;
+  } catch (error) {
+    throw new Error(`Error adding product: ${error.message}`);
+  }
+};

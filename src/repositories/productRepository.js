@@ -16,7 +16,6 @@ export const updateProductRepository = async (productId, newData) => {
     throw new Error('Product not found')
   }
 }
-
 export const deleteProductRepository = async (productId) => {
   const deletedRowCount = await Product.destroy({ where: { id: productId } })
   if (deletedRowCount === 0) {
@@ -24,3 +23,11 @@ export const deleteProductRepository = async (productId) => {
   }
   return true
 }
+export const addProductRepository = async (productData) => {
+  try {
+    const newProduct = await Product.create(productData);
+    return newProduct;
+  } catch (error) {
+    throw new Error('Error adding product: ' + error.message);
+  }
+};

@@ -3,6 +3,7 @@ import {
   getAllProductsService,
   getProductByIdService,
   deleteProductService,
+  addProductService,
 } from '../services/productService.js'
 import { StatusCodes } from 'http-status-codes'
 
@@ -68,3 +69,15 @@ export const deleteProductController = async (req, res) => {
       .json({ error: 'Internal Server Error' })
   }
 }
+
+export const addProductController = async (req, res) => {
+  try {
+    const newProduct = await addProductService(req.body);
+    res.status(StatusCodes.CREATED).json(newProduct);
+  } catch (error) {
+    console.error('Error in addProduct:', error);
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ error: 'Internal Server Error' });
+  }
+};
