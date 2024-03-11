@@ -1,4 +1,6 @@
 import { DataTypes } from 'sequelize'
+import Brand from './brand.js';
+
 import sequelize from '../db.js'
 
 const Product = sequelize.define(
@@ -42,5 +44,7 @@ const Product = sequelize.define(
     timestamps: true,
   },
 )
+
+Product.belongsTo(Brand, { foreignKey: 'id_brands', as: 'brand' });
 
 export default Product

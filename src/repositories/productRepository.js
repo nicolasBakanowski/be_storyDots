@@ -1,12 +1,18 @@
 import Product from '../models/product.js'
+import Brand from '../models/brand.js';
 
 export const getAllProductsRepository = async () => {
-  return Product.findAll()
+  return Product.findAll({
+    include: [{ model: Brand, as: 'brand' }],
+  });
 }
 
 export const getProductByIdRepository = async (productId) => {
-  return Product.findByPk(productId)
+  return Product.findByPk(productId, {
+    include: [{ model: Brand, as: 'brand' }],
+  });
 }
+
 
 export const updateProductRepository = async (productId, newData) => {
   if (productId) {
