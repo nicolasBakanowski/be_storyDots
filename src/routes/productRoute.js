@@ -6,7 +6,7 @@ import {
   deleteProductController,
   addProductController
 } from '../controllers/productController.js'
-import { editProductValidationMiddleware,productValidationMiddleware} from '../validators/ProductValidator.js'
+
 import { validationTokenMiddleware } from '../middlewares/validateTokenMiddleware.js'
 import { adminPermissionMiddleware } from '../middlewares/adminPermissionMiddleware.js'
 
@@ -18,7 +18,6 @@ productRoute.put(
   '/edit/:id',
   validationTokenMiddleware,
   adminPermissionMiddleware,
-  editProductValidationMiddleware,
   editProductController,
 )
 productRoute.delete('/delete/:id',
@@ -30,7 +29,6 @@ productRoute.post(
   '/new',
   validationTokenMiddleware,
   adminPermissionMiddleware,
-  productValidationMiddleware,
   addProductController,
 );
 export default productRoute

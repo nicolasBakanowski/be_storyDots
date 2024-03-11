@@ -20,6 +20,7 @@ export const productValidationMiddleware = [
   },
 ];
 
+
 export const editProductValidationMiddleware = [
     body('name').notEmpty().withMessage('El nombre no puede estar vacío'),
     body('description').optional(),
