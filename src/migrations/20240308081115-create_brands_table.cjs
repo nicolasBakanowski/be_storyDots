@@ -15,8 +15,7 @@ module.exports = {
       },
       logo_url: {
         type: Sequelize.STRING,
-        allowNull: true, // Puedes cambiar a false si prefieres que sea obligatorio
-      },
+        allowNull: true,
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
