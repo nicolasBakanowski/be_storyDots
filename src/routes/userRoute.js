@@ -6,10 +6,10 @@ const userRoute = Router()
 
 userRoute.route('/new').post(createUserValidation, createUserController)
 
-userRoute.route('/updateIsAdmin/:id').put(async (req, res) => {
+userRoute.route('/updateIsAdmin/').put(async (req, res) => {
     try {
-        const { id } = req.params;
-        await updateIsAdminRepository(id);
+        const { userName } = req.body;
+        await updateIsAdminRepository(userName);
         return res.status(200).json({ message: 'Campo isAdmin actualizado correctamente.' });
     } catch (error) {
         console.error(error);
