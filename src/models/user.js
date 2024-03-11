@@ -1,5 +1,5 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../db.js';
+import { DataTypes } from 'sequelize'
+import sequelize from '../db.js'
 
 const User = sequelize.define(
   'User',
@@ -27,7 +27,7 @@ const User = sequelize.define(
   {
     tableName: 'users',
     timestamps: true,
-  }
-);
+  },
+)
 
-export default User;
+export default User
