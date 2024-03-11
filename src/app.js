@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import productRoute from './routes/productRoute.js'
 import userRoute from './routes/userRoute.js'
+import authRoute from './routes/authRoute.js'
 import cors from 'cors'
 
 const app = express()
@@ -18,7 +19,7 @@ app.use(
 
 app.use('/product', productRoute)
 app.use('/user', userRoute)
-
+app.use('/auth', authRoute)
 
 app.use((req, res, next) => {
   res.status(404).send('Ruta no encontrada')
