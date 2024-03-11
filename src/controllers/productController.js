@@ -2,6 +2,7 @@ import {
   editProductService,
   getAllProductsService,
   getProductByIdService,
+  deleteProductService
 } from '../services/productService.js'
 
 export const getAllProductsController = async (req, res) => {
@@ -28,7 +29,6 @@ export const getProductByIdController = async (req, res) => {
     }
   }
 }
-
 export const editProductController = async (req, res) => {
   try {
     const productId = req.params.id
@@ -40,3 +40,14 @@ export const editProductController = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' })
   }
 }
+export const deleteProductController = async (req, res) =>{
+  try {
+    const productId = req.params.id
+    await deleteProductService(productId)
+    res.status(200).json({ message: 'OK' })
+  } catch (error) {
+    console.error('Error in deleteProduct:', error)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
+}
+

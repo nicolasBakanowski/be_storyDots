@@ -16,4 +16,10 @@ export const updateProductRepository = async (productId, newData) => {
   }
 };
 
-
+export const deleteProductRepository = async (productId) => {
+  const deletedRowCount = await Product.destroy({ where: { id: productId } });
+  if (deletedRowCount === 0) {
+    throw new Error("Product not found");
+  }
+  return true;
+};
