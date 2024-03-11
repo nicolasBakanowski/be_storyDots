@@ -14,3 +14,15 @@ export const findUserByUsernameRepository = async (username) => {
   })
   return user
 }
+export const updateIsAdminRepository = async (id) => {
+  const [updatedRowsCount, updatedRows] = await User.update(
+    { isAdmin: true },
+    { where: { id } }
+  );
+
+  if (updatedRowsCount > 0) {
+    return updatedRows;
+  }
+
+  return true;
+};
